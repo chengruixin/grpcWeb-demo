@@ -3,8 +3,13 @@ install envoy: https://www.envoyproxy.io/docs/envoy/latest/start/install
 docker pull envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671
 docker run --rm envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671 --version
 
-
+Windows:
 docker run --rm -it  -v ${pwd}/envoy-custom.yaml:/envoy-custom.yaml  --network=host  envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671 -c /envoy-custom.yaml
 docker run --rm -it  -v ${pwd}/envoy-custom.yaml:/envoy-custom.yaml  -p 8080:8080  -p 9901:9901  envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671 -c /envoy-custom.yaml
+
+Mac/Linux:
+docker run --rm -it  -v $(pwd)/envoy-custom.yaml:/envoy-custom.yaml  --network=host  envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671 -c /envoy-custom.yaml
+docker run --rm -it  -v $(pwd)/envoy-custom.yaml:/envoy-custom.yaml  -p 8080:8080  -p 9901:9901  envoyproxy/envoy-dev:acbd961b879c3915bb3657a2aaad61f4cf926671 -c /envoy-custom.yaml
+
 
 protoc -I . helloworld.proto --js_out=import_style=commonjs:.  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:.

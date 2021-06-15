@@ -25,15 +25,6 @@ client.sayHello(request, {}, (err, response) => {
     return;
   }
   
-  console.log("hello try");
   console.log(response.getMessage());
 });
 
-// client.sayHello(function(err, res){
-//   if(err) {
-//     console.log(err);
-//     return;
-//   }
-
-//   console.log(res);
-// })

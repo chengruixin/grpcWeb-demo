@@ -1,14 +1,15 @@
 const path = require('path');
 
 module.exports = {
-  entry: './node_client.js',
+  entry: './client.js',
   output: {
     filename: 'test.js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 8081,
-  }
+  },
+  mode : "development"
 };
