@@ -150,5 +150,80 @@ proto.helloworld.GreeterPromiseClient.prototype.sayHello =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.helloworld.DataRequest,
+ *   !proto.helloworld.DataResponse>}
+ */
+const methodDescriptor_Greeter_serverStream = new grpc.web.MethodDescriptor(
+  '/helloworld.Greeter/serverStream',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.helloworld.DataRequest,
+  proto.helloworld.DataResponse,
+  /**
+   * @param {!proto.helloworld.DataRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.helloworld.DataResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.helloworld.DataRequest,
+ *   !proto.helloworld.DataResponse>}
+ */
+const methodInfo_Greeter_serverStream = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.helloworld.DataResponse,
+  /**
+   * @param {!proto.helloworld.DataRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.helloworld.DataResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.helloworld.DataRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.helloworld.DataResponse>}
+ *     The XHR Node Readable Stream
+ */
+proto.helloworld.GreeterClient.prototype.serverStream =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/helloworld.Greeter/serverStream',
+      request,
+      metadata || {},
+      methodDescriptor_Greeter_serverStream);
+};
+
+
+/**
+ * @param {!proto.helloworld.DataRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.helloworld.DataResponse>}
+ *     The XHR Node Readable Stream
+ */
+proto.helloworld.GreeterPromiseClient.prototype.serverStream =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/helloworld.Greeter/serverStream',
+      request,
+      metadata || {},
+      methodDescriptor_Greeter_serverStream);
+};
+
+
 module.exports = proto.helloworld;
 

@@ -4,6 +4,8 @@ package helloworld;
 
 service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc biStream(stream DataRequest) returns(stream DataResponse){};
+  rpc serverStream(DataRequest) returns(stream DataResponse){};
 }
 
 message HelloRequest {
@@ -12,4 +14,12 @@ message HelloRequest {
 
 message HelloReply {
   string message = 1;
+}
+
+message DataRequest {
+  int32 requestMessage = 1;
+}
+
+message DataResponse {
+  int32 responseMessage = 1;
 }
