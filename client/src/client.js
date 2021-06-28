@@ -1,5 +1,9 @@
-const {HelloRequest, HelloReply, DataRequest} = require('./helloworld_pb.js');
-const {GreeterClient} = require('./helloworld_grpc_web_pb.js');
+import {HelloRequest, HelloReply, DataRequest} from '../utils/helloworld_pb';
+import {GreeterClient} from '../utils/helloworld_grpc_web_pb';
+
+// const {HelloRequest, HelloReply, DataRequest} = require('../utils/helloworld_pb.js');
+// const {GreeterClient} = require('../utils/helloworld_grpc_web_pb.js');
+
 
 var client = new GreeterClient('http://localhost:8080');
 
