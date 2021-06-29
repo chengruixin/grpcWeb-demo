@@ -66,6 +66,7 @@ function biStream(request, response){
 
 
 }
+
 function main() {
     const server = new grpc.Server();
     server.addService(helloworld.Greeter.service, {
