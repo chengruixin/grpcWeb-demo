@@ -16,7 +16,9 @@
         "google-protobuf": "^3.17.3",
         "grpc": "^1.24.10",
         "grpc-web": "^1.2.1",
-        "socket.io-client": "^4.1.2"
+        "jmuxer": "^2.0.2",
+        "socket.io-client": "^4.1.2",
+        "stream": "0.0.2"
     },
     "devDependencies": {
         "webpack-dev-server": "^3.11.2",

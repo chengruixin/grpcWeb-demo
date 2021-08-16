@@ -5,7 +5,7 @@ const socket = io('http://localhost:8080', {transports: ['websocket', 'polling',
 const mediaSource = new MediaSource();
 const callbackQueue = [];
 const localVideo = document.querySelector('video#video1');
-const remoteVideo = document.querySelector('video#video2');
+const remoteVideo = document.querySelector('video#player');
 const streamingBtn = document.querySelector('button#start');
 let sourceBuffer;
 let mediaRecorder;
